@@ -7,8 +7,6 @@ export const ExpensesList = ({ expenses }) => {
     return <ExpensesItem {...props} />
   }
 
-  console.log('EXPENSES', expenses)
-
   return (
     <FlatList
       data={expenses}
