@@ -3,55 +3,55 @@ import { createContext, useReducer } from "react";
 const DUMMY_EXPENSES = [
   {
     id: 'el1',
-    descriptio: 'a dress',
+    description: 'a dress',
     amount: 59.99,
     date: new Date('2022-07-15')
   },
   {
     id: 'el2',
-    descriptio: 'sneakers',
+    description: 'sneakers',
     amount: 129.99,
     date: new Date('2022-07-18')
   },
   {
     id: 'el3',
-    descriptio: 'a pair of trousers',
+    description: 'a pair of trousers',
     amount: 40.00,
     date: new Date('2022-07-18')
   }, 
   {
     id: 'el4',
-    descriptio: 'a book',
+    description: 'a book',
     amount: 14.99,
     date: new Date('2022-07-19')
   },
   {
     id: 'el5',
-    descriptio: 'mobile phone',
+    description: 'mobile phone',
     amount: 200.99,
     date: new Date('2022-07-19')
   },
   {
     id: 'el6',
-    descriptio: 'soap',
+    description: 'soap',
     amount: 0.99,
     date: new Date('2022-07-19')
   },
   {
     id: 'el7',
-    descriptio: 'shapoo',
+    description: 'shapoo',
     amount: 5.99,
     date: new Date('2022-07-10')
   },
   {
     id: 'el8',
-    descriptio: 'jeans',
+    description: 'jeans',
     amount: 48.79,
     date: new Date('2022-06-20')
   },
   {
     id: 'el9',
-    descriptio: 'cd camera',
+    description: 'cd camera',
     amount: 350.99,
     date: new Date('2022-05-22')
   },
