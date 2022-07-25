@@ -2,20 +2,21 @@ import { useState } from "react"
 import { View, StyleSheet, Text, Alert } from "react-native"
 import { Input } from "../UI/Input";
 import { Button } from "../UI/Button";
+import { GlobalStyles } from "../../constants/styles";
 
 export const ExpenseForm = ({ cancelHandler, submitButtonLabel, onSubmit, defaultValues }) => {
   const [inputs, setInputs] = useState({
     amount: {
       value: defaultValues ? defaultValues.amount.toString() : '',
-      isValid: !!defaultValues
+      isValid: true
     },
     date: {
       value: defaultValues ? defaultValues.date.toISOString().slice(0, 10) : '',
-      isValid: !!defaultValues
+      isValid: true
     },
     description:  {
       value: defaultValues ? defaultValues.description:  '',
-      isValid: !!defaultValues
+      isValid: true
     }
   });
 
@@ -64,6 +65,7 @@ export const ExpenseForm = ({ cancelHandler, submitButtonLabel, onSubmit, defaul
         <Input
           style={styles.rowInput}
           label="Amount"
+          invalid={!inputs.amount.isValid}
           textInputConfig={{
             keboardType: 'decimal-pad',
             value: inputs.amount.value,
@@ -73,6 +75,7 @@ export const ExpenseForm = ({ cancelHandler, submitButtonLabel, onSubmit, defaul
         <Input
           style={styles.rowInput}
           label="Date"
+          invalid={!inputs.date.isValid}
           textInputConfig={{
             placeholder: 'YYYY-MM-DD',
             maxLength: 10,
@@ -83,6 +86,7 @@ export const ExpenseForm = ({ cancelHandler, submitButtonLabel, onSubmit, defaul
       </View> 
       <Input
         label="Description"
+        invalid={!inputs.description.isValid}
         textInputConfig={{
           multiline: true,
           //autocorrect: false,
@@ -90,7 +94,7 @@ export const ExpenseForm = ({ cancelHandler, submitButtonLabel, onSubmit, defaul
           onChangeText: inputChangeHandler.bind(this, 'description')
         }}
       />
-      { formIsValid && <Text>Invalid input values. Please check your data!</Text> }
+      { formIsValid && <Text style={styles.errorText}>Invalid input values. Please check your data!</Text> }
       <View style={styles.buttonContainer}>
         <Button style={styles.button} mode="flat" onPress={cancelHandler}>Cancel</Button>
         <Button style={styles.button} onPress={submitHandler}>
@@ -128,4 +132,10 @@ const styles = StyleSheet.create({
     minWidth: 120,
     marginHorizontal: 8
   },
+  errorText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: GlobalStyles.colors.error500,
+    margin: 12
+  }
 });
